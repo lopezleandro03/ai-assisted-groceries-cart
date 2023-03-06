@@ -1,6 +1,10 @@
-## AI Assisted Groceries Cart
+# AI Assisted Groceries Cart
 
-This project is a starting point for a Flutter application enhanced with help of GitHub Copilot to create a AI assisted groceries cart.
+This project is a starting point for a Flutter application enhanced with help of GitHub Copilot to create a AI assisted groceries cart which simulates the input from a barcode scanner as you walk-thru a store and scan products(or buy online). The app generates nutritional insights and recipes based on your cart's products with help of Azure OpenAI.
+
+This represents a fictitious use case, the intent is to demonstrate the performance of GitHub Copilot developing Dart / Flutter cross-platform apps.
+
+## Getting started with Flutter:
 
 A few resources to get you started if this is your first Flutter project:
 
