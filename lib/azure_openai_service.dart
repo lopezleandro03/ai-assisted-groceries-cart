@@ -8,20 +8,23 @@ Future<OpenAIResponse> fetchNutriFacts(productsList) async {
   // print('Fetching Nutri Score...');
   
   var products = arrayToString(productsList);
-  var prompt =
-      "My groceries basket: $products \nHow nutritive is it? \nWhat can I add to make it better?";
+  // var prompt =
+  //     "My groceries basket: $products \nHow nutritive is it? \nWhat can I add to make it better?";
+
+  var prompt = "<|im_start|>system\nMy groceries basket: $products \nHow nutritive is it? \nWhat can I add to make it better?\n<|im_end|>\n";
 
   // print(prompt);
 
   var data = {
     'prompt': prompt,
-    'max_tokens': 200,
-    'temperature': 0.8,
-    'frequency_penalty': 0,
-    'presence_penalty': 0,
-    'top_p': 1,
-    'best_of': 1,
-    'stop': null
+    "temperature": 0.7,
+    "top_p": 0.95,
+    "frequency_penalty": 0,
+    "presence_penalty": 0,
+    "max_tokens": 800,
+    "stop": [
+      "<|im_end|>"
+    ]
   };
 
   final response = await http.post(
@@ -43,20 +46,20 @@ Future<OpenAIResponse> fetchNutriFacts(productsList) async {
 Future<OpenAIResponse> fetchRecipe(productsList) async {
   print('Fetching Recipe...');
   var products = arrayToString(productsList);
-  var prompt =
-      "My groceries basket: $products \nWhat would be a good recipe with a title and steps?";
+  var prompt = "<|im_start|>system\nMy groceries basket: $products \nWhat would be a good recipe with a title and steps?\n<|im_end|>\n";
 
-  print(prompt);
+  // print(prompt);
 
   var data = {
     'prompt': prompt,
-    'max_tokens': 200,
-    'temperature': 0.8,
-    'frequency_penalty': 0,
-    'presence_penalty': 0,
-    'top_p': 1,
-    'best_of': 1,
-    'stop': null
+    "temperature": 0.7,
+    "top_p": 0.95,
+    "frequency_penalty": 0,
+    "presence_penalty": 0,
+    "max_tokens": 800,
+    "stop": [
+      "<|im_end|>"
+    ]
   };
 
   final response = await http.post(
